@@ -13,7 +13,7 @@ def read_data(filename):
 def get_average_dictionary(readings):
   return {}
 
-FILENAME = '/home/michael/studies/p2_assignment/days.txt'
+FILENAME = '/home/michael/studies/python_assignment2/days.txt'
 
 if __name__ == "__main__":
   try:
