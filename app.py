@@ -6,8 +6,15 @@ def read_data(filename):
   for line in lines:
     line = line.replace('\n', '')
     line = line.split(',')
-    output_val = line[1]
-    output[line[0]] = output_val
+    location = line[0]
+    value = line[1]
+
+    # Eg, does 'Saturday' already exist?
+    if output[location] in output:
+      output[location] = [output[location]]
+      output[location].append(value)
+    else:
+      output[location] = value
 
   data_file.close()
   return output
@@ -15,7 +22,7 @@ def read_data(filename):
 def get_average_dictionary(readings):
   return {}
 
-FILENAME = '/home/michael/Code/python_assignment2/days.txt'
+FILENAME = 'days.txt'
 
 print(read_data(FILENAME))
 
