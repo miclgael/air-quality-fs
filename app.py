@@ -28,15 +28,12 @@ def read_data(filename):
     try:
       value = float(line[1])
     except ValueError as error:
-      value = 0.0 ## Nullify the result.
+      value = 0 ## Nullify the result.
       error = str(error).split('float: ')
-      print(colorize('Please check formatting! Result invalid due to poor formatting.\nLinter `value-is-float` expected FLOAT but found STRING {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
+      print(colorize('Please check formatting! Result invalid due to poor formatting.\nLinter `value-is-float` expected Float but found String {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
 
     if location in output:
       prev = output[location]
-      # print(location)
-      # print(prev)
-      # print(value)
       prev.append(value)
     else:
       output[location] = [value]
@@ -45,13 +42,21 @@ def read_data(filename):
   return output
 
 def get_average_dictionary(readings):
+  print(readings)
+  for value in readings:
+    print(readings[value])
+    # for fl in :
+    #   print(fl)
+  # res = []
+  # for val_arr in readings:
+  #   for val in val_arr:
+  #     print(val)
+  #     res.append(val)
   return {}
 
 FILENAME = 'days.txt'
-
-print(read_data(FILENAME))
-
-
+readings = read_data(FILENAME)
+averages = get_average_dictionary(readings)
 
 
 # if __name__ == "__main__":

@@ -1,10 +1,10 @@
-Monday,6
+Monday, 6
 Tuesday,7
 Wednesday,0
 Thursday,1
 Friday,1
-Friday,2
+Friday, 2
 Friday,3
 Saturday,9
-Saturday,10
+Saturday,Some string doesn't matter
 Sunday,5.5
