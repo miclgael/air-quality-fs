@@ -15,7 +15,7 @@ def read_data(filename):
 def get_average_dictionary(readings):
   return {}
 
-FILENAME = '/home/michael/studies/python_assignment2/days.txt'
+FILENAME = '/home/michael/Code/python_assignment2/days.txt'
 
 print(read_data(FILENAME))
 
