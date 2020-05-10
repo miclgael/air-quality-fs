@@ -2,6 +2,8 @@ Monday, 6
 Tuesday,7
 Wednesday,0
 Thursday,1
-Friday, 0
+Friday, 7
+Friday, 1
 Saturday,shit
+Saturday,9
 Sunday,5.5

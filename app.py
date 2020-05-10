@@ -14,32 +14,33 @@ def read_data(filename):
   data_file = open(filename,'r')
   lines = data_file.readlines()
   output = {}
-  for (index,line) in enumerate(lines):
+  for (index, line) in enumerate(lines):
     ## Check for formatting error (comma-space)
     if (', ' in line):
-      print(colorize(
-        'Please check formatting! Linter (comma-space) expected "," but found ", " in file "./{1}", line {0}'.format(index+1, filename), 
-        'warn'
+      print(colorize('Please check formatting! Linter (comma-space) expected "," but found ", " in file "./{1}", line {0}'.format(index+1, filename), 'warn'
       ))
       line = line.replace(", ", ",") # auto-fix space.
    
     line = line.replace('\n', '') # remove extraneous new lines
-    line = line.split(',')        # split at all commas
-    location = line[0]            # 
-    value = line[1]               #
+    line = line.split(',') # split into key / value pairs
     
     try:
-      output[location] = float(value)
-    except ValueError:
-      print('dipshit!')
+      location = str(line[0])
+      value = float(line[1])
+    except ValueError as error:
+      print(colorize('Please check formatting! ', 'error'))
+      print(colorize(error, 'error'))
 
-    # Eg, does 'Saturday' already exist?
-    # if output[location] in output:
-    #   output[location] = [output[location]]
-    #   output[location].append(value)
-    # else:
-    #   output[location] = value
-
+    if location in output:
+      prev = output[location][0]
+      print(location)
+      print(value)
+      print(prev)
+      new = [value, prev]
+      output[location] = new
+    else:
+      output[location] = [value]
+      
   data_file.close()
   return output
 
