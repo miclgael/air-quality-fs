@@ -2,13 +2,6 @@ Mallowbeach,67.4
 Glassdell,14
 Fayhedge,68.86
 Glassdell,15
-Mallowbeach,
-Mallowbeach,
-Mallowbeach,TEST_PROVIDING_STRING
-Mallowbeach,      70.3
-Newcastle,0
+Mallowbeach,70.3
 Newcastle,0
 Newcastle,5
-Newcastle,10
-,1
-,6
