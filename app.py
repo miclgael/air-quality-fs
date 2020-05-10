@@ -18,7 +18,7 @@ def read_data(filename):
     for (index, line) in enumerate(lines):
       ## Check for formatting error (comma-space)
       if (', ' in line):
-        print(colorize('Please check formatting! Linter `comma-space` expected "," but found ", " in file "./{1}", line {0}'.format(index+1, filename), 'warn'
+        print(colorize('Please check formatting!\n      Linter: `comma-space` expected "," but found ", " in file "./{1}", line {0}'.format(index+1, filename), 'warn'
         ))
         line = line.replace(", ", ",") # auto-fix space.
     
@@ -31,15 +31,16 @@ def read_data(filename):
 
       except IndexError as error:
         value = None ## Nullify the result.
-        print(colorize('The results have been invalidated due to poor formatting.\n       Linter `value-is-missing` expected Float but found Nothing! in file "./{1}", line {0}'.format(index+1,filename)))
+        print(colorize('The results have been invalidated due to poor formatting.\n       Linter: `value-is-missing` expected Float but found Nothing! in file "./{1}", line {0}'.format(index+1,filename)))
 
       except ValueError as error:
         value = None ## Nullify the result.
         error = str(error).split('float: ')
-        print(colorize('The results have been invalidated due to poor formatting.\n       Linter `value-is-float` expected Float but found String {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
+        print(colorize('The results have been invalidated due to poor formatting.\n       Linter: `value-is-float` expected Float but found String {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
 
       if location == '':
-        print(colorize('Please check formatting! Linter `no-location-name` expected a location name given, but found "" file "./{1}", line {0}'.format(index+1, filename), 'warn'
+        location = 'Unknown Location'
+        print(colorize('Please check formatting! Linter: `no-location-name` expected a location name given, but found "" file "./{1}", line {0}'.format(index+1, filename), 'warn'
         ))
         pass
 
@@ -66,7 +67,7 @@ def get_average_dictionary(readings):
   except TypeError:
     return {}
 
-FILENAME = 'readings2.txt'
+FILENAME = 'readings.txt'
 
 if __name__ == "__main__":
   try:
