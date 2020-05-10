@@ -2,7 +2,7 @@
 def read_data(filename):
 
   def colorize(text, msg_type="error"):
-    if msg_type == "error" or msg_type == None:
+    if msg_type == "error":
       start = "\u001b[31mError:" # <- ANSI for "red"
     elif msg_type == 'warning' or msg_type == "warn": 
       start = "\u001b[33mWarning:" # <- ANSI for "red"
@@ -17,27 +17,27 @@ def read_data(filename):
   for (index, line) in enumerate(lines):
     ## Check for formatting error (comma-space)
     if (', ' in line):
-      print(colorize('Please check formatting! Linter (comma-space) expected "," but found ", " in file "./{1}", line {0}'.format(index+1, filename), 'warn'
+      print(colorize('Please check formatting! Linter `comma-space` expected "," but found ", " in file "./{1}", line {0}'.format(index+1, filename), 'warn'
       ))
       line = line.replace(", ", ",") # auto-fix space.
    
     line = line.replace('\n', '') # remove extraneous new lines
     line = line.split(',') # split into key / value pairs
+    location = str(line[0])
     
     try:
-      location = str(line[0])
       value = float(line[1])
     except ValueError as error:
-      print(colorize('Please check formatting! ', 'error'))
-      print(colorize(error, 'error'))
+      value = 0.0 ## Nullify the result.
+      error = str(error).split('float: ')
+      print(colorize('Please check formatting! Result invalid due to poor formatting.\nLinter `value-is-float` expected FLOAT but found STRING {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
 
     if location in output:
-      prev = output[location][0]
-      print(location)
-      print(value)
-      print(prev)
-      new = [value, prev]
-      output[location] = new
+      prev = output[location]
+      # print(location)
+      # print(prev)
+      # print(value)
+      prev.append(value)
     else:
       output[location] = [value]
       
