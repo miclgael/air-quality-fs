@@ -1,0 +1,8 @@
+Mallowbeach,67.4
+Glassdell,14
+Fayhedge,68.86
+Glassdell,15
+Mallowbeach,
+Mallowbeach,
+Mallowbeach,STRING
+Mallowbeach,      70.3
