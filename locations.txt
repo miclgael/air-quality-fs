@@ -1,0 +1,10 @@
+Mallowbeach,67.4
+Glassdell,14
+Fayhedge,68.86
+Glassdell,          15
+,15
+
+Mallowbeach,70.3
+Newcastle Ocean Baths,44
+Newcastle Ocean Baths,666
+Newie,STRING

@@ -27,16 +27,29 @@ def read_data(filename):
     
     try:
       value = float(line[1])
-    except ValueError as error:
-      value = 0 ## Nullify the result.
-      error = str(error).split('float: ')
-      print(colorize('Please check formatting! Result invalid due to poor formatting.\nLinter `value-is-float` expected Float but found String {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
 
-    if location in output:
-      prev = output[location]
-      prev.append(value)
+    except IndexError as error:
+      value = None ## Nullify the result.
+      print(colorize('The results have been invalidated due to poor formatting.\n       Linter `value-is-missing` expected Float but found Nothing! in file "./{1}", line {0}'.format(index+1,filename)))
+
+    except ValueError as error:
+      value = None ## Nullify the result.
+      error = str(error).split('float: ')
+      print(colorize('The results have been invalidated due to poor formatting.\n       Linter `value-is-float` expected Float but found String {0} in file "./{2}", line {1}'.format(error[1],index+1,filename), 'error'))
+
+    if location == '':
+      print(colorize('Please check formatting! Linter `no-location-name` expected a location name given, but found "" file "./{1}", line {0}'.format(index+1, filename), 'warn'
+      ))
+      pass
+
+    if value == None:
+      pass # Drop the value entirely!
     else:
-      output[location] = [value]
+      if location in output:
+        prev = output[location]
+        prev.append(value)
+      else:
+        output[location] = [value]
       
   data_file.close()
   return output
@@ -54,7 +67,7 @@ def get_average_dictionary(readings):
   #     res.append(val)
   return {}
 
-FILENAME = 'days.txt'
+FILENAME = 'locations.txt'
 readings = read_data(FILENAME)
 averages = get_average_dictionary(readings)
 
