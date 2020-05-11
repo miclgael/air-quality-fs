@@ -81,7 +81,7 @@ Below is a guide to errors you may encounter, and steps to resolve.
 Error / Warning    | Solution                                              
 ------------------ | ------------------------------------------------------
 `comma-space`      | Remove spaces between comma, location and AQI reading.
-`value-is-missing` | Provide an AQI reading for every location. 
+`value-is-missing` | Provide an AQI reading for every location. There should be no empty lines in the file
 `value-is-float`   | The AQI must be a valid integer (eg. `1`) or floating point integer (eg. `1.1`).
 `no-location-name` | A location name should be provided for every line of the program.
 
