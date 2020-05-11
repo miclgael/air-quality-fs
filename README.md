@@ -4,7 +4,18 @@ This program is for use by Codetown council workers to summarise collected air q
 
 ## Table of Contents
 
-
+- [AQI Pollutant Calculator](#aqi-pollutant-calculator)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Example of `readings.txt`](#example-of-readingstxt)
+    - [Running the program](#running-the-program)
+  - [Example Usage](#example-usage)
+    - [1. Running the program](#1-running-the-program)
+    - [2. Example Input (from your `readings.txt`)](#2-example-input-from-your-readingstxt)
+    - [2. Expected Output](#2-expected-output)
+  - [Troubleshooting Guide](#troubleshooting-guide)
+  - [Help](#help)
 
 ## Installation
 
@@ -27,7 +38,7 @@ Glassdell,15
 Mallowbeach,70.3
 ```
 
-###  To run
+### Running the program
 
 To run the program, enter the following commands into your terminal prompt
 
@@ -43,7 +54,7 @@ To run the program, enter the following commands into your terminal prompt
 $ python3 air_quality_list.py
 ```
 
-### 2. Input (`readings.txt`)
+### 2. Example Input (from your `readings.txt`)
 
 ```
 Mallowbeach,67.4
@@ -60,9 +71,6 @@ Fayhedge 68.86
 Mallowbeach 68.85
 Glassdell 14.5
 ```
-
-## Walk-through Guide
-
 ## Troubleshooting Guide
 
 The program will produce warnings or errors when it encounters a file in an incorrect format. 
@@ -79,7 +87,7 @@ Error / Warning    | Solution
 
 Please note that `comma-space` and `no-location-name` are warnings only. These are messages (displayed in yellow) that indicate problems with formatting, but are handled automatically, and don't necessarily corrupt the output of the program.
 
-Other errors such as `value-is-missing` and `value-is-float` do indicate corrupted results, and should be resolved (manually) before the output of the program can be trusted.
+Other errors such as `value-is-missing` and `value-is-float` (displayed in red) indicate that the results have been corrupted by the malformed input, and should be resolved (manually) before the output of the program can be trusted.
 
 ## Help
 
