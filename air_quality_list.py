@@ -35,9 +35,11 @@ def read_data(filename):
         data_file = open(filename,'r')
         lines = data_file.readlines()
         output = {}
+
+        # Close early if file empty
         if len(lines) == 0:
             print(colorize('{} exists, but is empty!'.format(filename)))
-            exit
+            data_file.close()
 
         for (index, line) in enumerate(lines):
             # Check for formatting error (comma-space)
@@ -105,7 +107,6 @@ def get_average_dictionary(readings):
         return readings
     except TypeError:
         print(colorize('file exists, but it''s empty!'))
-        return {}
 
 FILENAME = "readings.txt"
 
