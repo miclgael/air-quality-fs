@@ -1,6 +1,6 @@
 # AQI Pollutant Calculator
 
-> 💡 This simple python program was written for a first year comp-sci assignment and serves no real-world purpose. This is part 2 of a series, [part i](https://github.com/miclgael/air-quality) and [part iii](https://github.com/miclgael/air-quality-gui) are available if interested.
+> 💡 This simple python program was written for a first year comp-sci assignment and serves no real-world purpose. This is part 2 of a series, [part 1](https://github.com/miclgael/air-quality) and [part 3](https://github.com/miclgael/air-quality-gui) are available if interested.
 
 This program is for use by Codetown council workers to summarise collected air quality information by calculating averages from each location.
 
