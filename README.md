@@ -93,4 +93,4 @@ Other errors such as `value-is-missing` and `value-is-float` (displayed in red) 
 
 ## Help
 
-Please email [Michael Gale](mailto:mgale8@myune.edu.au) to report bugs or for any technical assistance.
+Please email [Michael Gale](mailto:michael@michaelgale.dev) to report bugs or for any technical assistance.
